@@ -22,7 +22,6 @@ const modalName = document.getElementById('modal-name');
 const modalDesc = document.getElementById('modal-desc');
 const closeBtn = document.querySelector('.close-btn');
 
-// ДОБАВЛЕН ТРЕТИЙ ВРАЧ
 const doctorsData = {
   "1": { nameRu: "Иванов Иван", nameEn: "Ivan Ivanov", descRu: "Главный врач, стаж 15 лет. Специализация: внутренние болезни, кардиология.", descEn: "Chief physician, 15 years of experience. Specialization: internal diseases, cardiology." },
   "2": { nameRu: "Смирнова Анна", nameEn: "Anna Smirnova", descRu: "Ветеринарный хирург, стаж 8 лет. Специализация: хирургия мелких домашних животных.", descEn: "Veterinary surgeon, 8 years of experience. Specialization: surgery of small pets." },
@@ -92,7 +91,7 @@ searchInput.addEventListener('input', (e) => {
   });
 });
 
-// Отправка формы на почту (FormSubmit + Валидация)
+// Отправка формы через Netlify Forms + Валидация
 const form = document.getElementById('appointment-form');
 const successMsg = document.getElementById('success-msg');
 const nameInput = document.getElementById('name');
@@ -116,11 +115,12 @@ serviceSelect.addEventListener('change', () => clearError(serviceSelect, 'servic
 
 if (localStorage.getItem('savedNameVet')) nameInput.value = localStorage.getItem('savedNameVet');
 
-form.addEventListener('submit', async (e) => {
+form.addEventListener('submit', (e) => {
   e.preventDefault();
   let isValid = true;
   successMsg.classList.add('hidden');
 
+  // Валидация
   if (serviceSelect.value === "") { showError(serviceSelect, 'service-error', 'Выберите услугу'); isValid = false; } else { clearError(serviceSelect, 'service-error'); }
   if (nameInput.value.trim().length < 2) { showError(nameInput, 'name-error', 'Введите имя'); isValid = false; } else { clearError(nameInput, 'name-error'); }
   
@@ -134,36 +134,24 @@ form.addEventListener('submit', async (e) => {
     if (selectedDate < today) { showError(dateInput, 'date-error', 'Дата не может быть в прошлом'); isValid = false; } else { clearError(dateInput, 'date-error'); }
   }
 
+  // Отправка через Netlify
   if (isValid) {
     if (nameInput.value.trim().length > 1) localStorage.setItem('savedNameVet', nameInput.value.trim());
 
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const originalBtnText = submitBtn.textContent;
-    submitBtn.textContent = 'Отправка...';
-    submitBtn.disabled = true;
     const formData = new FormData(form);
-
-    try {
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      });
-
-      if (response.ok) {
-        successMsg.classList.remove('hidden');
-        form.reset();
-        if (localStorage.getItem('savedNameVet')) nameInput.value = localStorage.getItem('savedNameVet');
-        setTimeout(() => successMsg.classList.add('hidden'), 5000);
-      } else {
-        throw new Error('Ошибка');
-      }
-    } catch (error) {
+    
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString()
+    }).then(() => {
+      successMsg.classList.remove('hidden');
+      form.reset();
+      if (localStorage.getItem('savedNameVet')) nameInput.value = localStorage.getItem('savedNameVet');
+      setTimeout(() => successMsg.classList.add('hidden'), 5000);
+    }).catch(() => {
       alert("Произошла ошибка при отправке. Попробуйте позже.");
-    } finally {
-      submitBtn.textContent = originalBtnText;
-      submitBtn.disabled = false;
-    }
+    });
   }
 });
 
