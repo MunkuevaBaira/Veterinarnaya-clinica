@@ -70,7 +70,6 @@
     <section id="doctors" class="container bg-light">
       <h2 data-ru="Наши специалисты" data-en="Our specialists">Наши специалисты</h2>
       <div class="grid reveal">
-        
         <!-- Врач 1 -->
         <div class="card doctor-card">
           <img src="img/doctor1.jpg" alt="Иванов Иван" class="doctor-photo" onerror="this.src='https://via.placeholder.com/150x150/c8e6c9/2e7d32?text=Фото'">
@@ -78,7 +77,6 @@
           <p class="doctor-role" data-ru="Терапевт" data-en="Therapist">Терапевт</p>
           <button class="btn more-info-btn" data-doctor="1" data-ru="Подробнее" data-en="Details">Подробнее</button>
         </div>
-
         <!-- Врач 2 -->
         <div class="card doctor-card">
           <img src="img/doctor2.jpg" alt="Смирнова Анна" class="doctor-photo" onerror="this.src='https://via.placeholder.com/150x150/c8e6c9/2e7d32?text=Фото'">
@@ -86,15 +84,13 @@
           <p class="doctor-role" data-ru="Хирург" data-en="Surgeon">Хирург</p>
           <button class="btn more-info-btn" data-doctor="2" data-ru="Подробнее" data-en="Details">Подробнее</button>
         </div>
-
-        <!-- Врач 3 (ДОБАВЛЕН) -->
+        <!-- Врач 3 -->
         <div class="card doctor-card">
           <img src="img/doctor3.jpg" alt="Петров Олег" class="doctor-photo" onerror="this.src='https://via.placeholder.com/150x150/c8e6c9/2e7d32?text=Фото'">
           <h3 data-ru="Петров Олег" data-en="Oleg Petrov">Петров Олег</h3>
           <p class="doctor-role" data-ru="Дерматолог" data-en="Dermatologist">Дерматолог</p>
           <button class="btn more-info-btn" data-doctor="3" data-ru="Подробнее" data-en="Details">Подробнее</button>
         </div>
-
       </div>
     </section>
 
@@ -123,13 +119,13 @@
       </div>
     </section>
 
-    <!-- Форма с отправкой на почту (FormSubmit) -->
+    <!-- Форма с отправкой на почту (Netlify Forms) -->
     <section id="appointment" class="container">
       <h2 data-ru="Записаться на прием" data-en="Book an appointment">Записаться на прием</h2>
-      <form id="appointment-form" action="https://formsubmit.co/bairamunkueva1@gmail.com" method="POST" novalidate>
+      <form id="appointment-form" name="appointment" method="POST" data-netlify="true" novalidate>
         
-        <input type="hidden" name="_subject" value="Новая заявка с сайта ВетКлиника!">
-        <input type="hidden" name="_captcha" value="false">
+        <!-- Обязательное скрытое поле для Netlify -->
+        <input type="hidden" name="form-name" value="appointment" />
 
         <div class="form-group">
           <label for="service" data-ru="Выберите услугу *" data-en="Choose service *">Выберите услугу *</label>
