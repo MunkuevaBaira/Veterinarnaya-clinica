@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ВетКлиника — Забота о ваших питомцах</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Задание 1. Кнопка Наверх -->
+  <button id="to-top" title="Наверх">↑</button>
+
+  <header>
+    <div class="container header-content">
+      <div class="logo" data-ru="🐾 ВетКлиника" data-en="🐾 VetClinic">🐾 ВетКлиника</div>
+      <nav>
+        <a href="#services" data-ru="Услуги" data-en="Services">Услуги</a>
+        <a href="#doctors" data-ru="Врачи" data-en="Doctors">Врачи</a>
+        <a href="#reviews" data-ru="Отзывы" data-en="Reviews">Отзывы</a>
+        <a href="#appointment" data-ru="Запись" data-en="Appointment">Запись</a>
+        <a href="#contacts" data-ru="Контакты" data-en="Contacts">Контакты</a>
+      </nav>
+      <!-- Задание 7. Переключатель языка -->
+      <button id="lang-toggle" class="lang-btn">EN</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <h1 data-ru="Здоровье вашего питомца — наша забота" data-en="Your pet's health is our care">Здоровье вашего питомца — наша забота</h1>
+        <p data-ru="Современная ветеринарная клиника с опытными специалистами." data-en="Modern veterinary clinic with experienced specialists.">Современная ветеринарная клиника с опытными специалистами.</p>
+        <a href="#appointment" class="btn" data-ru="Записаться на прием" data-en="Book an appointment">Записаться на прием</a>
+      </div>
+    </section>
+
+    <!-- Задание 8. Поиск + Задание 3. Анимация -->
+    <section id="services" class="container">
+      <h2 data-ru="Наши услуги" data-en="Our services">Наши услуги</h2>
+      
+      <div class="search-box reveal">
+        <input type="text" id="service-search" placeholder="Поиск услуги..." data-ru-placeholder="Поиск услуги..." data-en-placeholder="Search service...">
+      </div>
+
+      <div class="grid reveal" id="services-grid">
+        <div class="card service-card" data-service="Терапия" data-name-ru="Терапия" data-name-en="Therapy">
+          <h3 data-ru="🩺 Терапия" data-en="🩺 Therapy">🩺 Терапия</h3>
+          <p data-ru="Осмотр, диагностика и лечение." data-en="Examination, diagnostics and treatment.">Осмотр, диагностика и лечение.</p>
+          <button class="btn service-btn" data-ru="Записаться" data-en="Book">Записаться</button>
+        </div>
+        <div class="card service-card" data-service="Вакцинация" data-name-ru="Вакцинация" data-name-en="Vaccination">
+          <h3 data-ru="💉 Вакцинация" data-en="💉 Vaccination">💉 Вакцинация</h3>
+          <p data-ru="Комплексные прививки." data-en="Comprehensive vaccinations.">Комплексные прививки.</p>
+          <button class="btn service-btn" data-ru="Записаться" data-en="Book">Записаться</button>
+        </div>
+        <div class="card service-card" data-service="Груминг" data-name-ru="Груминг" data-name-en="Grooming">
+          <h3 data-ru="✂️ Груминг" data-en="✂️ Grooming">✂️ Груминг</h3>
+          <p data-ru="Стрижка и уход за шерстью." data-en="Haircut and coat care.">Стрижка и уход за шерстью.</p>
+          <button class="btn service-btn" data-ru="Записаться" data-en="Book">Записаться</button>
+        </div>
+        <div class="card service-card" data-service="Стоматология" data-name-ru="Стоматология" data-name-en="Dentistry">
+          <h3 data-ru="🦷 Стоматология" data-en="🦷 Dentistry">🦷 Стоматология</h3>
+          <p data-ru="Уход за зубами питомца." data-en="Pet dental care.">Уход за зубами питомца.</p>
+          <button class="btn service-btn" data-ru="Записаться" data-en="Book">Записаться</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Задание 10. Модальное окно -->
+    <section id="doctors" class="container bg-light">
+      <h2 data-ru="Наши специалисты" data-en="Our specialists">Наши специалисты</h2>
+      <div class="grid reveal">
+        
+        <!-- Врач 1 -->
+        <div class="card doctor-card">
+          <img src="img/doctor1.jpg" alt="Иванов Иван" class="doctor-photo" onerror="this.src='https://via.placeholder.com/150x150/c8e6c9/2e7d32?text=Фото'">
+          <h3 data-ru="Иванов Иван" data-en="Ivan Ivanov">Иванов Иван</h3>
+          <p class="doctor-role" data-ru="Терапевт" data-en="Therapist">Терапевт</p>
+          <button class="btn more-info-btn" data-doctor="1" data-ru="Подробнее" data-en="Details">Подробнее</button>
+        </div>
+
+        <!-- Врач 2 -->
+        <div class="card doctor-card">
+          <img src="img/doctor2.jpg" alt="Смирнова Анна" class="doctor-photo" onerror="this.src='https://via.placeholder.com/150x150/c8e6c9/2e7d32?text=Фото'">
+          <h3 data-ru="Смирнова Анна" data-en="Anna Smirnova">Смирнова Анна</h3>
+          <p class="doctor-role" data-ru="Хирург" data-en="Surgeon">Хирург</p>
+          <button class="btn more-info-btn" data-doctor="2" data-ru="Подробнее" data-en="Details">Подробнее</button>
+        </div>
+
+        <!-- Врач 3 (ДОБАВЛЕН) -->
+        <div class="card doctor-card">
+          <img src="img/doctor3.jpg" alt="Петров Олег" class="doctor-photo" onerror="this.src='https://via.placeholder.com/150x150/c8e6c9/2e7d32?text=Фото'">
+          <h3 data-ru="Петров Олег" data-en="Oleg Petrov">Петров Олег</h3>
+          <p class="doctor-role" data-ru="Дерматолог" data-en="Dermatologist">Дерматолог</p>
+          <button class="btn more-info-btn" data-doctor="3" data-ru="Подробнее" data-en="Details">Подробнее</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Задание 9. Слайдер без библиотек -->
+    <section id="reviews" class="container reveal">
+      <h2 data-ru="Отзывы клиентов" data-en="Customer reviews">Отзывы клиентов</h2>
+      <div class="slider-container">
+        <div class="slider" id="review-slider">
+          <div class="slide">
+            <p data-ru="«Очень внимательные врачи! Вылечили нашего кота.»" data-en="«Very attentive doctors! Cured our cat.»">«Очень внимательные врачи! Вылечили нашего кота.»</p>
+            <span data-ru="— Анна" data-en="— Anna">— Анна</span>
+          </div>
+          <div class="slide">
+            <p data-ru="«Удобная онлайн-запись, приняли без очереди.»" data-en="«Convenient online booking, no waiting.»">«Удобная онлайн-запись, приняли без очереди.»</p>
+            <span data-ru="— Игорь" data-en="— Igor">— Игорь</span>
+          </div>
+          <div class="slide">
+            <p data-ru="«Сделали прививку собаке, все прошло отлично.»" data-en="«Vaccinated my dog, everything went great.»">«Сделали прививку собаке, все прошло отлично.»</p>
+            <span data-ru="— Елена" data-en="— Elena">— Елена</span>
+          </div>
+        </div>
+        <div class="slider-controls">
+          <button id="prev-slide" class="btn">←</button>
+          <button id="next-slide" class="btn">→</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Форма с отправкой на почту (FormSubmit) -->
+    <section id="appointment" class="container">
+      <h2 data-ru="Записаться на прием" data-en="Book an appointment">Записаться на прием</h2>
+      <form id="appointment-form" action="https://formsubmit.co/bairamunkueva1@gmail.com" method="POST" novalidate>
+        
+        <input type="hidden" name="_subject" value="Новая заявка с сайта ВетКлиника!">
+        <input type="hidden" name="_captcha" value="false">
+
+        <div class="form-group">
+          <label for="service" data-ru="Выберите услугу *" data-en="Choose service *">Выберите услугу *</label>
+          <select id="service" name="service">
+            <option value="" data-ru="-- Выберите услугу --" data-en="-- Choose service --">-- Выберите услугу --</option>
+            <option value="Терапия" data-ru="Терапия" data-en="Therapy">Терапия</option>
+            <option value="Вакцинация" data-ru="Вакцинация" data-en="Vaccination">Вакцинация</option>
+            <option value="Груминг" data-ru="Груминг" data-en="Grooming">Груминг</option>
+            <option value="Стоматология" data-ru="Стоматология" data-en="Dentistry">Стоматология</option>
+          </select>
+          <span class="error-msg" id="service-error"></span>
+        </div>
+        
+        <div class="form-group">
+          <label for="name" data-ru="Ваше имя *" data-en="Your name *">Ваше имя *</label>
+          <input type="text" id="name" name="name" placeholder="Например: Иван">
+          <span class="error-msg" id="name-error"></span>
+        </div>
+        
+        <div class="form-group">
+          <label for="phone" data-ru="Телефон *" data-en="Phone *">Телефон *</label>
+          <input type="tel" id="phone" name="phone" placeholder="+7 (999) 123-45-67">
+          <span class="error-msg" id="phone-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="date" data-ru="Дата приема *" data-en="Date *">Дата приема *</label>
+          <input type="date" id="date" name="date">
+          <span class="error-msg" id="date-error"></span>
+        </div>
+        
+        <button type="submit" class="btn" data-ru="Отправить заявку" data-en="Submit">Отправить заявку</button>
+        <p id="success-msg" class="success-msg hidden" data-ru="Спасибо! Ваша заявка принята." data-en="Thank you! Your request has been received.">Спасибо! Ваша заявка принята.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer id="contacts">
+    <div class="container footer-content">
+      <div>
+        <h3>🐾 ВетКлиника</h3>
+        <p data-ru="Забота о питомцах с 2015 года." data-en="Pet care since 2015.">Забота о питомцах с 2015 года.</p>
+      </div>
+      <div>
+        <h3 data-ru="Контакты" data-en="Contacts">Контакты</h3>
+        <p data-ru="📍 г. Улан - Удэ, ул. Зоологическая, д. 10" data-en="📍 Ulan - Ude, Zoologicheskaya st., 10">📍 г. Улан - Удэ, ул. Зоологическая, д. 10</p>
+        <p data-ru="📞 +7 (495) 123-45-67" data-en="📞 +7 (495) 123-45-67">📞 +7 (495) 123-45-67</p>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>© <span id="year"></span> ВетКлиника. <span data-ru="Все права защищены." data-en="All rights reserved.">Все права защищены.</span></p>
+    </div>
+  </footer>
+
+  <!-- Само модальное окно -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2 id="modal-name"></h2>
+      <p id="modal-desc"></p>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
